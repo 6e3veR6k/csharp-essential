@@ -3,9 +3,33 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29503.13
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Classes", "Classes", "{E6C00AC6-C8D2-4640-B7F0-780262040E51}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Homework", "Homework", "{E985CB2E-9F55-4DF2-B5BD-87375F11CD07}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Codewars", "Codewars", "{3EBA4758-FA32-4FB1-9FF5-AB88065ED639}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Generics", "Generics", "{99C2BC47-7E1D-4B40-B962-F1A96C8BC0FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task1", "Task1\Task1.csproj", "{46923BF0-8091-4DDC-A32E-7A438063166C}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{46923BF0-8091-4DDC-A32E-7A438063166C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46923BF0-8091-4DDC-A32E-7A438063166C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46923BF0-8091-4DDC-A32E-7A438063166C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46923BF0-8091-4DDC-A32E-7A438063166C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{99C2BC47-7E1D-4B40-B962-F1A96C8BC0FC} = {E6C00AC6-C8D2-4640-B7F0-780262040E51}
+		{46923BF0-8091-4DDC-A32E-7A438063166C} = {99C2BC47-7E1D-4B40-B962-F1A96C8BC0FC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F4682576-8845-4D50-AE47-61A15CB7076E}

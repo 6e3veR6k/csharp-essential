@@ -21,7 +21,45 @@ namespace Task1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var dynamicClass = new Helper();
+            Del<int> del1 = null;
+
+
+            del1 += dynamicClass.PrintArguments;
+            del1 += dynamicClass.Swap;
+            del1 += dynamicClass.PrintArguments;
+
+            Del<string> del2 = null;
+
+
+            del2 += dynamicClass.PrintArguments;
+            del2 += dynamicClass.Swap;
+            del2 += dynamicClass.PrintArguments;
+
+
+            int x = 10, y = 99;
+            string first = "Hello ", second = "world!";
+
+
+            del1(ref x, ref y);
+            del2(ref first, ref second);
+
+        }
+    }
+
+    public class Helper
+    {
+        public void Swap<T>(ref T first, ref T second)
+        {
+            T temp = first;
+            first = second;
+            second = temp;
+        }
+
+
+        public void PrintArguments<T>(ref T first, ref T second)
+        {
+            Console.WriteLine($"Значение первого аргумента – {first}, значение второго аргумента – {second}");
         }
     }
 }

@@ -19,11 +19,43 @@ namespace Task3
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Figure figure = new Figure();
+
+            for(int i = 0; i < 6; i++)
+            {
+                figure.Add(new Point(i, 6 - i));
+            }
+
+            Console.WriteLine(new string('#', 50));
+            Console.WriteLine(figure.FigureName);
+
+
+            Point t = figure[3];
+            Console.WriteLine($"point3 has coordinates => ({t.X}, {t.Y})");
+
+            for(int i = 0; i < figure.PointsCount; i++)
+            {
+                Point point = figure[i];
+
+                Console.WriteLine($"point{i} => ({point.X}, {point.Y})");
+            }
+
+
+            Console.WriteLine(new string('#', 50));
+            figure.Remove(4);
+            Console.WriteLine(figure.FigureName);
+
+            for (int i = 0; i < figure.PointsCount; i++)
+            {
+                Point point = figure[i];
+
+                Console.WriteLine($"point{i} => ({point.X}, {point.Y})");
+            }
+
         }
     }
 
-    struct Point
+    public struct Point
     {
         private int x;
         private int y;
@@ -38,17 +70,110 @@ namespace Task3
         }
     }
 
+    public enum FiguresName
+    {
+        dot = 1, 
+        line, 
+        triangle, 
+        quadrangle, 
+        pentagon, 
+        hexagon
+    }
+
     public class Figure
     {
-        private Point[] points = new Point[]
-        {
-            new Point(0, 0),
-            new Point(1, 1),
-            new Point(2, 1),
-            new Point(4, 2),
-            new Point(3, 3),
-            new Point(1, 3)
-        };
+        private Point[] points;
 
-        private string figureName;
+        public string FigureName
+        { 
+            get
+            {
+                if (PointsCount <= (Enum.GetNames(typeof(FiguresName)).Length))
+                    return Enum.GetName(typeof(FiguresName), PointsCount);
+                else
+                    return "Polygon";
+            } 
+        }
+        private int count;
+        private int defaultCapacity = 4;
+
+        public int PointsCount
+        {
+            get => count;
+        }
+
+        private Point[] emptyArray = new Point[0];
+
+        public Figure()
+        {
+            points = emptyArray;
+        }
+
+        public Figure(Point point)
+        {
+            points = new Point[defaultCapacity];
+            points[count++] = point;
+        }
+
+        public Figure(params Point[] points)
+        {
+            this.points = points;
+            count = this.points.Length;
+        }
+
+        private void ExtendArray()
+        {
+            Point[] temp;
+            if (points.Length == 0)
+            {
+                points = new Point[defaultCapacity];
+            }
+            else
+            {
+                temp = new Point[count * defaultCapacity];
+                Array.Copy(points, 0, temp, 0, points.Length - 1);
+                points = temp;
+            }
+        }
+
+        public void Add(Point point)
+        {
+            if(count == this.points.Length)
+            {
+                ExtendArray();
+            }
+
+            this.points[count++] = point;
+        }
+
+        public void Remove(int index)
+        {
+            if (index >= 0 && index < points.Length)
+            {
+                count--;
+                Array.Copy(points, index + 1, points, index, count - index);
+            }
+
+        }
+
+        public Point this[int index]
+        {
+            get
+            {
+                if (index >= 0 && index < points.Length)
+                    return points[index];
+                else
+                    throw new IndexOutOfRangeException();
+            }
+
+            set
+            {
+                if (index >= 0 && index < points.Length)
+                    points[index] = value;
+                else
+                    throw new IndexOutOfRangeException();
+            }
+        }
+    }
+
 }

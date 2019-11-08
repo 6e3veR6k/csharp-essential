@@ -23,6 +23,18 @@ namespace Task2
             myArray.Add(6);
 
             myArray.Remove(3);
+
+
+            MyArray<string> myArray2 = new MyArray<string>();
+                                   
+            myArray2.Add("string - 1");
+            myArray2.Add("string - 2");
+            myArray2.Add("string - 3");
+            myArray2.Add("string - 4");
+            myArray2.Add("string - 5");
+            myArray2.Add("string - 6");
+
+            myArray2.Remove(3);
         }
     }
 }

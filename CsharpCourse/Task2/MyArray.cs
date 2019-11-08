@@ -6,61 +6,82 @@ namespace Task2
 {
     public class MyArray<T>
     {
-        private T[] _items;
-        private int _size;
+        private T[] items;
 
-        private int _defaultCapacity = 4;
+
+        private int count;
+        private int defaultCapacity = 4;
+
+        public int ItemsCount
+        {
+            get => count;
+        }
+
+        private T[] emptyArray = new T[0];
 
         public MyArray()
         {
-            _items = new T[0];
+            items = emptyArray;
+        }
+
+        public MyArray(params T[] items)
+        {
+            this.items = items;
+            count = this.items.Length;
+        }
+
+        private void ExtendArray()
+        {
+            T[] temp;
+            if (items.Length == 0)
+            {
+                items = new T[defaultCapacity];
+            }
+            else
+            {
+                temp = new T[count * defaultCapacity];
+                Array.Copy(items, 0, temp, 0, items.Length - 1);
+                items = temp;
+            }
+        }
+
+        public void Add(T item)
+        {
+            if (count == items.Length)
+            {
+                ExtendArray();
+            }
+
+            this.items[count++] = item;
+        }
+
+        public void Remove(int index)
+        {
+            if (index >= 0 && index < items.Length)
+            {
+                count--;
+                Array.Copy(items, index + 1, items, index, count - index);
+            }
+
         }
 
         public T this[int index]
         {
             get
             {
-                if (index < 0 || index >= _items.Length) Console.WriteLine("Index out of range");
-                return _items[index];
+                if (index >= 0 && index < items.Length)
+                    return items[index];
+                else
+                    throw new IndexOutOfRangeException();
             }
 
             set
             {
-                if (index >= 0 && index < _items.Length)
-                { 
-                    _items[index] = value; 
-                }
+                if (index >= 0 && index < items.Length)
+                    items[index] = value;
                 else
-                { 
-                    Console.WriteLine("Index out of range"); 
-                }
+                    throw new IndexOutOfRangeException();
             }
         }
-
-        public void Add(T element)
-        {
-            if (_items.Length == _size) ExtendArray();
-
-            _size++;
-
-            _items[_size] = element;
-        }
-
-        public void Remove(int index)
-        {
-            if (index < 0 || index >= _items.Length) throw new IndexOutOfRangeException();
-
-            Array.Copy(_items, index + 1, _items, index, _items.Length - index);
-        }
-
-        private void ExtendArray()
-        {
-            T[] newItems = new T[_defaultCapacity *= 4];
-
-            Array.Copy(_items, 0, newItems, 0, _items.Length);
-            _items = newItems;
-        }
-
-        public int GetLength() => _size;
     }
 }

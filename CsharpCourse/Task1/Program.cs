@@ -12,7 +12,7 @@
 */
 
 
-namespace Task1
+namespace Geneics1
 {
     public delegate void Del<T>(ref T first, ref T second);
 

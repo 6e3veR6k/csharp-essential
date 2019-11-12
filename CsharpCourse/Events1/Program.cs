@@ -9,4 +9,12 @@ namespace Events1
             Console.WriteLine("Hello World!");
         }
     }
+
+    class B
+    {
+        void Print()
+        {
+            Console.WriteLine(nameof(Print)); 
+        }
+    }
 }

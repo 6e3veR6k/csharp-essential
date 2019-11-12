@@ -13,7 +13,7 @@
  * Продемонстрируйте работу функционала Figure в методе Main.
  */
 
-namespace Task3
+namespace Geneics3
 {
     class Program
     {

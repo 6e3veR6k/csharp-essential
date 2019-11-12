@@ -10,7 +10,7 @@ using System.Collections.Generic;
 */
 
 
-namespace Task6
+namespace Geneics6
 {
     class Program
     {

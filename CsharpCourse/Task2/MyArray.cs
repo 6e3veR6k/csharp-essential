@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Task2
+namespace Geneics2
 {
     public class MyArray<T>
     {

@@ -9,7 +9,7 @@
  * Продемонстрируйте работу методов на экземпляре класса Class1.
 */
 
-namespace Task5
+namespace Geneics5
 {
     class Program
     {

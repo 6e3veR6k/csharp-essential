@@ -16,7 +16,7 @@
 */
 
 
-namespace Task8
+namespace Geneics8
 {
     class Program
     {

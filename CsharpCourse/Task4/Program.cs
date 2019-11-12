@@ -9,7 +9,7 @@
 //Создайте экземпляры классов Class1 и Class2 в методе Main и продемонстрируйте на них работу созданных методов.
 
 
-namespace Task4
+namespace Geneics4
 {
     class Program
     {

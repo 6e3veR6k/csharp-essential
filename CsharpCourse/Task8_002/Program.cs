@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Task8_002
+namespace Geneics8_002
 {
     public enum Trast
     {

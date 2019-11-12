@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Task8_001
+namespace Geneics8_001
 {
     class Program
     {
